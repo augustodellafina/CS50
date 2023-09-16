@@ -9,7 +9,7 @@ def convert(input_str):
 # Define the main function
 def main():
     # Prompt the user for input
-    user_input = input("How are you felling: ")
+    user_input = input("Type some greeting: ")
     
     # Call the convert function and print the result
     converted_input = convert(user_input)
