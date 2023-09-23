@@ -16,13 +16,11 @@ while total_amount < 50:
             if amount_due > 0:
                 print(f"Amount Due: {amount_due}")
         else:
-            print(f"Amount Due: {amount_due}")
             print("Invalid coin. Please insert a 25, 10, or 5 cent coin.")
     except ValueError:
-        print(f"Amount Due: {amount_due}")
         print("Invalid input. Please enter a valid integer.")
 
 # Calculate and display the change owed
-change_owed = total_amount - 50
-if change_owed > 0:
+if total_amount >= 50:
+    change_owed = total_amount - 50
     print(f"Change Owed: {change_owed}")
