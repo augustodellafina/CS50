@@ -23,6 +23,6 @@ while total_amount < 50:
         print("Invalid coin. Please enter a valid coin.")
 
 # Calculate and display the change owed
-if total_amount >= 50:
+if total_amount == 50:
     change_owed = total_amount - 50
     print(f"Change Owed: {change_owed}")
