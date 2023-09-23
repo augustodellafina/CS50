@@ -3,7 +3,6 @@ total_amount = 0
 amount_due = 50
 accepted_coins = [25, 10, 5]
 
-print(f"Amount Due: {amount_due}")
 # Continue looping until the total amount reaches 50 cents or more
 while total_amount < 50:
     try:
@@ -14,13 +13,14 @@ while total_amount < 50:
         if coin in accepted_coins:
             amount_due -= coin
             total_amount += coin
-            print(f"Amount Due: {amount_due}")
+            if amount_due > 0:
+                print(f"Amount Due: {amount_due}")
         else:
             print("Invalid coin. Please insert a 25, 10, or 5 cent coin.")
     except ValueError:
         print("Invalid input. Please enter a valid integer.")
 
 # Calculate and display the change owed without "Amount Due"
-change_owed = 50 - amount_due
-if change_owed == 0:
+change_owed = total_amount - 50
+if change_owed > 0:
     print(f"Change Owed: {change_owed}")
