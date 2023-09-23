@@ -6,27 +6,34 @@ def main():
         print("Invalid")
 
 def is_valid(s):
-    # Requirement 1: Plate must start with at least two letters
+    # Requirement 1: Vanity plates must start with at least two letters.
     if len(s) < 2:
         return False
 
-    # Requirement 2: Plate must contain between 2 and 6 characters (letters or numbers)
+    # Requirement 2: Vanity plates may contain a maximum of 6 characters
+    # (letters or numbers) and a minimum of 2 characters.
     if len(s) < 2 or len(s) > 6:
         return False
 
-    # Requirement 3: Numbers cannot be used in the middle of the plate
-    if not s[-1].isnumeric() or s[0] == '0':
+    # Requirement 3: Numbers cannot be used in the middle of a plate (between letters);
+    # they must come at the end. The first number used cannot be a '0'.
+    has_number = False
+    for i in range(len(s)):
+        if s[i].isdigit():
+            if i == 0:
+                if s[i] == '0':
+                    return False
+                has_number = True
+            else:
+                if has_number:
+                    return False
+        elif has_number and not s[i].isalpha():
+            return False
+
+    # Requirement 4: No periods, spaces, or punctuation marks are allowed.
+    if any(char in '. ,;:!?-' for char in s):
         return False
 
-    # Requirement 4: No periods, spaces, or punctuation marks are allowed
-    if any(not char.isalnum() for char in s):
-        return False
-
-    # Requirement 5: Numbers must come at the end
-    if any(char.isnumeric() for char in s[:-1]):
-        return False
-
-    # If all requirements are met, the plate is valid
     return True
 
 main()
