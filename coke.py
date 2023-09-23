@@ -3,6 +3,7 @@ total_amount = 0
 amount_due = 50
 accepted_coins = [25, 10, 5]
 
+print(f"Amount Due: {amount_due}")
 # Continue looping until the total amount reaches 50 cents or more
 while total_amount < 50:
     try:
@@ -11,16 +12,19 @@ while total_amount < 50:
         
         # Check if the coin is an accepted denomination
         if coin in accepted_coins:
-            amount_due -= coin
             total_amount += coin
+            amount_due = 50 - total_amount
             if amount_due > 0:
                 print(f"Amount Due: {amount_due}")
+            elif amount_due == 0:
+                break
         else:
             print("Invalid coin. Please insert a 25, 10, or 5 cent coin.")
     except ValueError:
         print("Invalid input. Please enter a valid integer.")
 
-# Calculate and display the change owed without "Amount Due"
-change_owed = total_amount - 50
-if change_owed > 0:
-    print(f"Change Owed: {change_owed}")
+# Calculate and display the change owed if it's greater than zero
+if amount_due == 0:
+    print("Change Owed: 0")
+elif amount_due > 0:
+    print(f"Change Owed: {amount_due}")
