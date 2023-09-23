@@ -1,7 +1,7 @@
 # Get the input in camel case from the user
-camel_case = input("Enter a variable name in camel case: ")
+camel_case = input("Enter a camel case input: ")
 
-# Initialize an empty string for the snake case version
+# Initialize an empty string for the snake case
 snake_case = ""
 
 # Iterate through each character in the camel case input
@@ -16,7 +16,7 @@ for char in camel_case:
         # If the character is not uppercase, simply add it to the snake_case string
         snake_case += char
 
-# Print the snake case version of the variable name
+# Print the snake and camel case vesrions of the input
 print("camelCase: " + camel_case, end='\n'
       "snake_case: " + snake_case
 )
