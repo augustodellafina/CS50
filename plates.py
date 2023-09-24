@@ -6,34 +6,26 @@ def main():
         print("Invalid")
 
 def is_valid(s):
-    # Requirement 1: Vanity plates must start with at least two letters.
-    if len(s) < 2:
+    # Requirement 1: Plate must have at least 2 letters at the beginning
+    if len(s) < 2 or not s[:2].isalpha():
         return False
 
-    # Requirement 2: Vanity plates may contain a maximum of 6 characters
-    # (letters or numbers) and a minimum of 2 characters.
-    if len(s) < 2 or len(s) > 6:
+    # Requirement 2: Plate must have a maximum of 6 characters
+    if len(s) > 6:
         return False
 
-    # Requirement 3: Numbers cannot be used in the middle of a plate (between letters);
-    # they must come at the end. The first number used cannot be a '0'.
-    has_number = False
-    for i in range(len(s)):
-        if s[i].isdigit():
-            if i == 0:
-                if s[i] == '0':
-                    return False
-                has_number = True
-            else:
-                if has_number:
-                    return False
-        elif has_number and not s[i].isalpha():
+    # Requirement 3: Numbers cannot be in the middle, and the first number cannot be 0
+    if s[2:].isdigit():
+        if s[2] == '0':
+            return False
+        if not s[2:].isnumeric():
             return False
 
-    # Requirement 4: No periods, spaces, or punctuation marks are allowed.
-    if any(char in '. ,;:!?-' for char in s):
+    # Requirement 4: No periods, spaces, or punctuation marks are allowed
+    if any(char in ". ,;:!?" for char in s):
         return False
 
+    # If all requirements are met, return True
     return True
 
 main()
