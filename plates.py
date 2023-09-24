@@ -6,23 +6,26 @@ def main():
         print("Invalid")
 
 def starts_with_letters(s):
-    # Check if the first two characters are letters
-    return s[:2].isalpha()
+    if len(s) < 2:
+        return False
+    first_two = s[:2]
+    return first_two.isalpha()
+
+def has_valid_numbers(s):
+    if s[-1] == '0':
+        return False
+    for i in range(len(s) - 1):
+        if s[i].isdigit() and not s[i + 1].isdigit():
+            return False
+    return True
 
 def has_valid_length(s):
-    # Check if the length of the string is between 2 and 6 characters
     return 2 <= len(s) <= 6
 
-def no_invalid_numbers(s):
-    # Check if the first character is not '0', and there are no numbers in the middle
-    return s[0] != '0' and all(char.isalpha() for char in s[2:-1])
-
-def has_numbers_at_end(s):
-    # Check if the last character is a number
-    return s[-1].isdigit()
+def has_no_punctuation(s):
+    return all(char.isalnum() for char in s)
 
 def is_valid(s):
-    # Check all the requirements
-    return starts_with_letters(s) and has_valid_length(s) and no_invalid_numbers(s) and has_numbers_at_end(s)
+    return starts_with_letters(s) and has_valid_numbers(s) and has_valid_length(s) and has_no_punctuation(s)
 
 main()
