@@ -20,7 +20,7 @@ def has_valid_numbers(s):
     return True
 
 def has_valid_length(s):
-    return 2 <= len(s) <= 6
+    return 2 < len(s) > 6
 
 def has_no_punctuation(s):
     return all(char.isalnum() for char in s)
