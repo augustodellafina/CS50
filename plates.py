@@ -15,7 +15,7 @@ def starts_with_letters(s):
 
 # Function to check if the vanity plate has valid numbers at the end
 def has_valid_numbers(s):
-    if not s[1].isalpha():
+    if not s[:1].isalpha():
         return False  # Check if the two first characters is a letter
     first_digit = None
     for i, char in enumerate(s):
