@@ -4,7 +4,7 @@ def main():
         "apple": 130,
         "avocado": 50,
         "sweet cherries": 100,
-        "Kiwifruit": 90,
+        "kiwifruit": 90,
         "pear": 100,
     }
 
