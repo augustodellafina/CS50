@@ -4,6 +4,8 @@ def main():
         "apple": 130,
         "avocado": 50,
         "sweet cherries": 100,
+        "Kiwifruit": 90,
+        "pear": 100,
     }
 
     # Prompt the user for input and convert it to lowercase for case-insensitive matching
@@ -14,6 +16,6 @@ def main():
         # Output the calorie value for the entered fruit
         print("Calories:", fruit_calories[user_input])
     else:
-        print("Fruit not found")
+        pass
 
 main()
