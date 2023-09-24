@@ -21,8 +21,8 @@ def has_valid_numbers(s):
                 first_digit = char
             if first_digit == '0':
                 return False  # The first number is '0', which is invalid
-        elif first_digit is not None:
-            break  # We found a non-digit character after the first number
+        elif first_digit is not None and i < len(s) - 1:
+            return False  # We found a non-digit character after the first number but before the end
     return True
 
 def has_valid_length(s):
