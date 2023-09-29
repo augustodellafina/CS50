@@ -3,14 +3,13 @@ grocery_list = {}
 def main():
   try:
     while True:
-      item = input("Add item: ").title()
+      item = input().title()
       if item in grocery_list:
         grocery_list[item] += 1
       else:
         grocery_list[item] = 1
   except EOFError:
     pass
-    print("\n")
 
   sorted_grocery_list = sorted(grocery_list.items())
 
