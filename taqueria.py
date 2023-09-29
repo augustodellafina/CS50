@@ -10,7 +10,6 @@ menu = ({
   "Tortilla Salad": 8.00
 })
 
-
 def main():
   total_cost = 0.0
 
@@ -20,7 +19,7 @@ def main():
 
       # Check if the user input is a valid item from the menu
       if item in menu:
-        total_cost += menu[item] # Add the item's price to the total
+        total_cost += menu[item] # Add the item's price to the total :)
       else:
         print("Invalid Item, Please choose something from the Menu.")
       
@@ -28,7 +27,7 @@ def main():
       print(f"Total: ${total_cost:.2f}")
 
   except EOFError:
-    pass # If the user pressed control-d, then we exit the loop
+    pass # If the user pressed control-d, then we exit the loop :(
 
   print("Thank you for your order!")
 
